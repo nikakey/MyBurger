@@ -80,7 +80,6 @@
   box-shadow: inset 1px 3px #c9c9c9;
 }
 
-
 .Meat {
   width: 80%;
   height: 8%;
@@ -110,4 +109,52 @@
   height: 3%;
   background: linear-gradient(#bf3813, #c45e38);
   margin: 2% auto;
+}
+
+.Onion {
+  width: 75%;
+  height: 3%;
+  margin: 2% auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Onion1 {
+  width: 49%;
+  background: linear-gradient(#c9cfce, #e7eceb);
+  border-radius: 10px;
+}
+
+.Onion2 {
+  width: 49%;
+  background: linear-gradient(#c9cfce, #e7eceb);
+  border-radius: 10px;
+}
+
+.Cucumbers {
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+  height: 4%;
+  margin: 2% auto;
+}
+
+.Cucumber1 {
+  width: 49%;
+  background: linear-gradient(#20691c, #5ac563);
+  border-radius: 5px;
+}
+
+.Cucumber2 {
+  width: 49%;
+  background: linear-gradient(#20691c, #5ac563);
+  border-radius: 5px;
+}
+
+.Tomato {
+  width: 80%;
+  height: 6%;
+  margin: 2% auto;
+  background: linear-gradient(#c22c06, #ff3b0a);
+  border-radius: 20px;
 }
