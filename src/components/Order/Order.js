@@ -15,8 +15,7 @@ const order = (props) => {
     return <span 
               style={{
                 textTransform: 'capitalize',
-                display: 'inline-block',
-                margin: '0 8px',
+                display: 'block',
                 border: '1px solid #ccc',
                 padding: '5px'
               }}
@@ -26,7 +25,8 @@ const order = (props) => {
 
   return (
     <div className={classes.Order}>
-      <p>Ingredients: {ingredientOutput}</p>
+      <p>Ingredients:</p>
+      <div className={classes.IngredientsWrapper}>{ingredientOutput}</div>
       <p>Price: <strong>USD {Number.parseFloat(props.price).toFixed(2)}</strong></p>
     </div>
   );

@@ -6,3 +6,16 @@
   margin: 10px auto;
   box-sizing: border-box;
 }
+
+.IngredientsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .IngredientsWrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
