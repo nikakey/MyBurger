@@ -13,7 +13,8 @@ class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          placeholder: 'Your Name'
+          placeholder: 'Your Name',
+          valuetype: 'name'
         },
         value: '',
         validation: {
@@ -22,11 +23,12 @@ class ContactData extends Component {
         valid: false,
         touched: false
       },
-      street: {
+      address: {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          placeholder: 'Street'
+          placeholder: 'Your Address',
+          valuetype: 'address'
         },
         value: '',
         validation: {
@@ -39,7 +41,8 @@ class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          placeholder: 'Postal Code'
+          placeholder: 'Postal Code',
+          valuetype: 'postal code'
         },
         value: '',
         validation: {
@@ -54,7 +57,8 @@ class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          placeholder: 'City'
+          placeholder: 'City',
+          valuetype: 'city'
         },
         value: '',
         validation: {
@@ -67,7 +71,8 @@ class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'email',
-          placeholder: 'Your Email'
+          placeholder: 'Your Email',
+          valuetype: 'email address'
         },
         value: '',
         validation: {
@@ -171,6 +176,7 @@ class ContactData extends Component {
             invalid={!formEl.config.valid}
             shouldValidate={formEl.config.validation}
             touched={formEl.config.touched}
+            valuetype={formEl.config.elementConfig.valuetype}
             changed={(event) => this.inputChangedHandler(event, formEl.id)} />
         ))}
         <Button btnType="Success">Order</Button>

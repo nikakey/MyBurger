@@ -31,3 +31,8 @@
   border: 1px solid red;
   background: #fda49a;
 }
+
+.ValidationError {
+  color: red;
+  margin: 5px 0;
+}
