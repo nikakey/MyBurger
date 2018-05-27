@@ -17,6 +17,18 @@ const input = (props) => {
         {...props.elementConfig} 
         value={props.value} />;
       break;
+    case ('select'):
+      inputEl = (
+        <select
+          className={classes.InputEl}
+          value={props.value}>
+          {props.elementConfig.options.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.displayValue}
+            </option>
+          ))}
+        </select>);
+        break;
     default:
       inputEl = <input 
         className={classes.InputEl} 
