@@ -6,7 +6,7 @@ const initialState = {
     bacon: 0,
     meat: 0,
     cheese: 0,
-    cucmbers: 0,
+    cucumbers: 0,
     onion: 0,
     tomato: 0
   },
@@ -26,7 +26,10 @@ const reducer = (state = initialState, action) => {
     case actionTypes.REMOVE_INGREDIENT:
       return {
         ...state,
-        [action.ingredientName]: state.ingredients[action.ingredientName] - 1
+        ingredients: {
+          ...state.ingredients,
+          [action.ingredientName]: state.ingredients[action.ingredientName] - 1
+        }
       };
     default:
       return state;
