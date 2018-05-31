@@ -13,14 +13,15 @@ const order = (props) => {
 
   const ingredientOutput = ingredients.map(ig => {
     return <span 
-              style={{
-                textTransform: 'capitalize',
-                display: 'block',
-                border: '1px solid #ccc',
-                padding: '5px'
-              }}
-              key={ig.name}>{ig.name} ({ig.amount})
-            </span>
+      style={{
+        textTransform: 'capitalize',
+        display: 'block',
+        border: '1px solid #ccc',
+        padding: '5px'
+      }}
+      key={ig.name}>
+      {ig.name} ({ig.amount})
+    </span>
   });
 
   return (
