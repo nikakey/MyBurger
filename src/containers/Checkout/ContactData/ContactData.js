@@ -132,6 +132,16 @@ class ContactData extends Component {
       isValid = value.length <= rules.maxLength && isValid;
     }
 
+    if(rules.isEmail) {
+      const pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+      isValid = pattern.test(value) && isValid
+    }
+
+    if(rules.isNumeric) {
+      const pattern = /^\d+$/;
+      isValid = pattern.test(value) && isValid
+    }
+
     return isValid;
 
   }
