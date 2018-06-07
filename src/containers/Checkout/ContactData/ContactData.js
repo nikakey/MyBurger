@@ -8,7 +8,7 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from '../../../hoc/withErrorHandler';
 import * as orderActions from '../../../store/actions/index';
-import {updateObject} from '../../../shared/utility';
+import {updateObject, validityCheck} from '../../../shared/utility';
 
 class ContactData extends Component {
   
@@ -77,11 +77,12 @@ class ContactData extends Component {
         elementConfig: {
           type: 'email',
           placeholder: 'Your Email',
-          valuetype: 'email address'
+          valuetype: 'email'
         },
         value: '',
         validation: {
-          required: true
+          required: true,
+          isEmail: true
         },
         valid: false,
         touched: false
@@ -119,40 +120,11 @@ class ContactData extends Component {
     this.props.onOrderBurger(order, this.props.token);
   }
 
-  validityCheck (value, rules) {
-    let isValid = true;
-
-    if(rules.required) {
-      isValid = value.trim() !== '' && isValid;
-    }
-
-    if(rules.minLength) {
-      isValid = value.length >= rules.minLength && isValid;
-    }
-
-    if(rules.maxLength) {
-      isValid = value.length <= rules.maxLength && isValid;
-    }
-
-    if(rules.isEmail) {
-      const pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-      isValid = pattern.test(value) && isValid
-    }
-
-    if(rules.isNumeric) {
-      const pattern = /^\d+$/;
-      isValid = pattern.test(value) && isValid
-    }
-
-    return isValid;
-
-  }
-
   inputChangedHandler = (event, inputIdentifier) => {
     
     const updatedFormEl = updateObject(this.state.orderForm[inputIdentifier], {
       value: event.target.value,
-      valid: this.validityCheck(event.target.value, this.state.orderForm[inputIdentifier].validation),
+      valid: validityCheck(event.target.value, this.state.orderForm[inputIdentifier].validation),
       touched: true
     });
     const updatedOrderForm = updateObject(this.state.orderForm, {
