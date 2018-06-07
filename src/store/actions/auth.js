@@ -32,27 +32,28 @@ export const logout = () => {
   };
 };
 
-export const checkAuthTimeout = (expirationTime) => {
+export const checkAuthTimeout = (expirationDate) => {
   return dispatch => {
     setTimeout(() => {
       dispatch(logout());
-    }, expirationTime * 1000);
+    }, expirationDate * 1000);
   };
 };
 
 export const auth = (email, password, isSignUp) => {
   return dispatch => {
     dispatch(authStart());
+
     const authData = {
       email: email,
       password: password,
       returnSecureToken: true
     };
+
     let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyAoq8_lcm_4Tc70rJF5mj92OFPSGsVzs1g';
     if(!isSignUp) {
       url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyAoq8_lcm_4Tc70rJF5mj92OFPSGsVzs1g';
     }
-
     axios.post(url, authData)
       .then(response => {
         console.log(response);
