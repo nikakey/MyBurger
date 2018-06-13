@@ -50,9 +50,11 @@ export const auth = (email, password, isSignUp) => {
       returnSecureToken: true
     };
 
-    let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyAoq8_lcm_4Tc70rJF5mj92OFPSGsVzs1g';
+    const api_key = process.env.REACT_APP_WEATHER_API_KEY;
+   
+    let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + api_key;
     if(!isSignUp) {
-      url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyAoq8_lcm_4Tc70rJF5mj92OFPSGsVzs1g';
+      url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + api_key;
     }
     axios.post(url, authData)
       .then(response => {
